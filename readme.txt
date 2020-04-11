@@ -62,6 +62,17 @@ The input electric field is defined as:
 tau=tau_fwhm/sqrt(2*log(2));
 E=E_0*exp(-t^2/tau^2)exp(-x^2/(2*sigma_in^2))exp(-y^2/(2*sigma_homo^2));
 
+---------------------------------
+Change the calculation length:
+---------------------------------
+In the my_input class ("my_input.m"), the variable "obj.d_beam_peak" controls the calculation length.
+---------------------------------
+Picking up the old calculation:
+---------------------------------
+Checkpoint is included. If a calculation is aborted for some reason, it will recognize the old checkpoint and pick up from where the checkpoint is saved automatically when launched next time.  
+-If all the variables used in defining the saving name (file_name at line 55 in the "tpf2D_public.m" ) are the same, the program will recognize them as the same process and will pick up from the old checkpoint.
+-however, if the entire run is finished (not aborted in between), the checkpoint will be deleted automatically. 
+-If you wish to keep the checkpoint after the program finishes, uncomment the line 111 in the "tpf2D_public.m" function. 
 
 
 %-------------------------------------------------------------------------
@@ -79,5 +90,7 @@ domain of the users' interest. If not, the frequency and the spatial domains
 can be modified at "/my_discritization/x_discritization.m" and "/my_struct/input_Lu.m"
 respectively.
  
+
+
 
 
