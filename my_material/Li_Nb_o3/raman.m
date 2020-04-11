@@ -2,7 +2,7 @@ function [h_r]= raman(omega_b,omega_0)
 
 c=3e8;
 f_tt=((omega_b-omega_0)./(2*pi))/c/100;                                                  
-eps_infinity=0;%3.3;
+eps_infinity=3.3;
 h_r=ones(length(f_tt),1).*eps_infinity;
 f_1=[130,248,274,307,628,692];                                             %wave number   
 gamma_1=[75,21,14,25,34,49];
