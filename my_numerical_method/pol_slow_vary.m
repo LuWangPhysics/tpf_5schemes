@@ -6,7 +6,7 @@ function [RK] =pol_slow_vary(crystal_tilt,phi,LN,k_vector,x0,z0,dz,RK,OP)
      
             phi_ir=phi.ir+RK.array(RK.n-1).*RK.ir_s{RK.n-1}.*dz;
             phi_thz=phi.thz+RK.array(RK.n-1).*RK.thz_s{RK.n-1}.*dz;
-         
+            z0=z0+RK.array(RK.n-1)*dz;
 
             e_ir_wx=OP.propagation_phase(k_vector.kx_ir,x0,k_vector.kz_ir,z0).*OP.fft2_kxtox(phi_ir.*OP.diffraction_phase(k_vector.kx_ir,k_vector.kx,k_vector.kz_ir,z0),k_vector);
             % phase compensation 0 for NLES and 1 for all other prism shapes
